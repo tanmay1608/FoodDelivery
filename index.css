@@ -26,26 +26,31 @@
 .res-card{
     margin: 10px;
     width: 200px;
-   
-    padding: 5px;
     border: 1px solid rgba(0, 0, 0, 0);
     cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0px 0px 10px 10px ;
+}
+.res-card h3, .res-card h4, .res-card h5{
+    padding: 5px;
 }
 
 .res-card h5{
     overflow-wrap: break-word;
-    
+  
 }
 
 .res-card:hover{
     border: 1px solid rgba(0, 0, 0, 0.3);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
     background-color: white;
+    transform: scale(1.05);
 }
 .res-logo{
     width: 100%;
     height: 150px;
     object-fit: cover;
+    
 }
 
 .search{
