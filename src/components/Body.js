@@ -1,27 +1,98 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
-import { useState } from "react";
-
-
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-//Local State Variable - super powerful variable
- const [updatedRes, setUpdatedRes]=useState(resList);
+  //Local State Variable - super powerful variable
+  const [mainList, setMainList]= useState([]);
+  const [updatedRes, setUpdatedRes] = useState([]);
+  const [searchtext, setSearchText] = useState("");
 
-//Normal JS variable 
-//let updatedRes;
+  //Normal JS variable
+  //let updatedRes;
 
+  //useEffect Hooks
+
+  // useEffect(()=>{
+  //   console.log("inside useEffect");
+  //   //this will be called after body component got rendered.
+  // },[]);
+
+  // console.log("inside body");// this will be called before useEffect
+
+  useEffect(() => {
+    fetchData().catch((error)=>{
+      console.log(error);
+    });
+    
+  }, []);
+
+  useEffect(()=>{
+    console.log("update res updated");
+  },[updatedRes]);
+
+  const fetchData = async () => {
 
   
+      const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.86255&lng=75.813741&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
+   
+      const json =await data.json();
 
-  return (
+      
+   
+     for(let card of json?.data?.cards){
+      if(card.card.card.id === "top_brands_for_you"){
+        setUpdatedRes(card.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setMainList(card.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        break;
+      }
+     
+     }
+    
+   
+     
+    
+   
+    
+
+   
+  };
+
+  // This is known as conditional rendering
+  // if(updatedRes.length === 0 ){
+  //   return <Shimmer/>;
+  // }
+
+  return updatedRes.length === 0 ? (
+    <Shimmer />
+  ) : (
     //in jsx inline css is not like normal html , here style takes js object.
     // why parenthesis , beacuse whenever we have to write js inside js we use {}
     // but not a prefered way
     <div className="body">
       <div className="search">
-        <input placeholder="Search for restaurant.."></input>
+        <input
+          type="text"
+          placeholder="Search for restaurant.."
+          value={searchtext}
+          onChange={(event) => {
+            setSearchText(event.target.value);
+          }}
+        ></input>
+        <button
+          onClick={() => {
+            const searchUpdatedList = mainList.filter((res) => {
+              return res.info.name
+                .toLowerCase()
+                .includes(searchtext.toLowerCase());
+            });
+            console.log(searchUpdatedList);
+            setUpdatedRes(searchUpdatedList);
+          }}
+        >
+          Search
+        </button>
         <button
           onClick={() => {
             filteredList = updatedRes.filter((restaurant) => {
