@@ -108,3 +108,66 @@
     cursor: pointer;
     margin-right: 10px;
 }
+
+.res-menu-body{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.res-info-card{
+    width: 400px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.2);
+}
+
+.res-info-shimmer-card{
+    height: 300px;
+    width: 400px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.2);
+}
+
+.res-menu-shimmer-content h1{
+    width: 350px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.res-info-shimmer-card h1{
+    width: 300px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.res-info-card h3{
+    font-weight: bold;
+}
+
+.cuisine{
+    color: #f1580e;
+    font-weight: bold;
+}
+
+
+
+span{
+    
+    font-weight: bold;
+}
+
+.menu-item{
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.restaurant-conatiner a{
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0.8) ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
