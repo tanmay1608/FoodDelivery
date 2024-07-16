@@ -1,58 +1,62 @@
 # Food Delivery App
 
-/\*\*
+## Components Structure
 
-- Header
-- - Logo
-- - Nav Items
--
-- Body
-- - Search
-- - Restaurant Conatiner
--     - Restaurant card
--        - img
--        - Name of res, star rating, cuisines, delivery time.
-- Footer
-- - Copyright
-- - Links
-- - Address
-- - Contact
-- \*/
+- **Header**
+  - Logo
+  - Navigation Items
 
-Two type sof Export/Import
--Deafult Export/Import
-export default Component
+- **Body**
+  - Search
+  - Restaurant Container
+    - Restaurant Card
+      - Image
+      - Name of Restaurant
+      - Star Rating
+      - Cuisines
+      - Delivery Time
+
+- **Footer**
+  - Copyright
+  - Links
+  - Address
+  - Contact Information
+
+## Export/Import in JavaScript
+
+### Two Types of Export/Import
+
+### Default Export/Import
+```javascript
+export default Component;
 import Component from "path";
+```
 
--Named Export/Import
+### Named Export/Import
+``` javascript
 export const Component;
 export {Component};
 import {Component} from "path";
+```
 
-# React Hooks
-(Normal Js Utility functions)
-- useState() - Superpowerful State Variables in reatc
-- useEffect()
+## React Hooks(Normal JS Utility Functions)
+- `useState()` - Superpowerful State Variables in React
+- `useEffect()` - Manage Side Effects in Functional Components
 
-# Two types of Routing
+
+## Two types of Routing
 - Client side routing
 - Server side routing
+- under the hood <Link> component is wrapper on anchor tag
 
-under the hood <Link> component is wrapper on anchor tag
-.
+### In JavaScript, any value can be considered either "truthy" or "falsy". A value is truthy if it evaluates to true when used in a boolean context, and falsy if it evaluates to false. The following values are considered falsy:
 
-
-
-
-In JavaScript, any value can be considered either "truthy" or "falsy". A value is truthy if it evaluates to true when used in a boolean context, and falsy if it evaluates to false. The following values are considered falsy:
-
-false
-0
-"" (empty string)
-null
-undefined
-NaN
-
+- false
+- 0
+- "" (empty string)
+- null
+- undefined
+- NaN
 
 const groupedCardMenu = resMenu.find(menu => menu.groupedCard);
 
