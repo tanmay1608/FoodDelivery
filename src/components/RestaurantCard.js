@@ -10,12 +10,12 @@ const RestaurantCard = (props) => {
   const { slaString } = resData?.info?.sla;
 
   return (
-    <div className="res-card" style={styleCard}>
-      <img className="res-logo" src={CDN_URL + cloudinaryImageId} />
-      <h3>{name}</h3>
-      <h5>{cuisines.join(", ")}</h5>
-      <h4>⭐ {avgRating}</h4>
-      <h4>{slaString}</h4>
+    <div className="bg-sky-100 mx-2 mb-6 w-48 border border-solid border-black cursor-pointer rounded-t-none rounded-b-2xl transition-transform  duration-300 ease-in-out hover:scale-105 hover:shadow-[10px_10px_20px_0_rgba(0,0,0,0.2)]" style={styleCard}>
+      <img className="w-full h-36 object-cover" src={CDN_URL + cloudinaryImageId} />
+      <h3 className="p-2 font-bold ">{name}</h3>
+      <h5 className="p-2 break-words ">{cuisines.join(", ")}</h5>
+      <h4 className="p-2 font-semibold">⭐ {avgRating}</h4>
+      <h4 className="p-2 font-semibold">{slaString}</h4>
     </div>
   );
 };
