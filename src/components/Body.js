@@ -83,9 +83,9 @@ if(onlineStatus === false) return <h1>Oops!!! please check your network.</h1>
     //in jsx inline css is not like normal html , here style takes js object.
     // why parenthesis , beacuse whenever we have to write js inside js we use {}
     // but not a prefered way
-    <div className="body">
-      <div className="search">
-        <input
+    <div className="flex flex-col items-center">
+      <div className="p-2">
+        <input className="p-2 m-4 border border-solid  focus:outline-1 focus: outline-gray-400"
           type="text"
           placeholder="Search for restaurant.."
           value={searchtext}
@@ -93,7 +93,7 @@ if(onlineStatus === false) return <h1>Oops!!! please check your network.</h1>
             setSearchText(event.target.value);
           }}
         ></input>
-        <button
+        <button className="p-2 m-1 cursor-pointer bg-sky-500 hover:bg-sky-700 hover:text-white rounded-md"
           onClick={() => {
             console.log("Inside log click");
             const searchUpdatedList = mainList.filter((res) => {
@@ -107,7 +107,7 @@ if(onlineStatus === false) return <h1>Oops!!! please check your network.</h1>
         >
           Search
         </button>
-        <button
+        <button className="p-2 m-1 cursor-pointer bg-sky-500 hover:bg-sky-700 hover:text-white rounded-md"
           onClick={() => {
             filteredList = updatedRes.filter((restaurant) => {
               return restaurant.info.avgRating > 4.5;
@@ -119,9 +119,9 @@ if(onlineStatus === false) return <h1>Oops!!! please check your network.</h1>
           Filter
         </button>
       </div>
-      <div className="restaurant-conatiner">
+      <div className="flex flex-wrap justify-center">
         {updatedRes.map((restaurant) => (
-          <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id} ><RestaurantCard  resData={restaurant} /></Link>
+          <Link className="underline-none text-black text-opacity-80 flex flex-wrap justify-center " key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id} ><RestaurantCard  resData={restaurant} /></Link>
           // <RestaurantCard key={restaurant.info.id}  resData={restaurant} />
         ))}
       </div>
