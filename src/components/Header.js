@@ -32,7 +32,7 @@ const Header = () => {
       <div className=" flex justify-center items-center">
         <ul className=" flex text-base">
           <li className="p-2 my-0 mx-2 list-none">Online Status: {onlineStatus ? "🟢" : "🔴" }</li>
-          <li className="p-2 my-0 mx-2 list-none rounded-md hover:bg-sky-500 hover:text-white"><Link to={"/"}>Home</Link></li>
+          <li className="p-2 my-0 mx-2 list-none rounded-md hover:bg-sky-500 hover:text-white text-base"><Link to={"/"}>Home</Link></li>
           <li className="p-2 my-0 mx-2 list-none   rounded-md hover:bg-sky-500 hover:text-white"><Link to={"/about"}>About Us</Link></li>
           <li className="p-2 my-0 mx-2 list-none   rounded-md hover:bg-sky-500 hover:text-white"><Link to={"/contact"}>Contact Us</Link></li>
           <li className="p-2 my-0 mx-2 list-none   rounded-md hover:bg-sky-500 hover:text-white"><Link to={"/grocery"}>Grocery</Link></li>

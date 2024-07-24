@@ -10,7 +10,7 @@ const RestaurantCard = (props) => {
   const { slaString } = resData?.info?.sla;
 
   return (
-    <div className="bg-sky-100 mx-2 mb-6 w-48 border border-solid border-black cursor-pointer rounded-t-none rounded-b-2xl transition-transform  duration-300 ease-in-out hover:scale-105 hover:shadow-[10px_10px_20px_0_rgba(0,0,0,0.2)]" style={styleCard}>
+    <div className=" bg-sky-100 mx-2 mb-6 w-48 border border-solid border-black cursor-pointer rounded-t-none rounded-b-2xl transition-transform  duration-300 ease-in-out hover:scale-105 hover:shadow-[10px_10px_20px_0_rgba(0,0,0,0.2)] " style={styleCard}>
       <img className="w-full h-36 object-cover" src={CDN_URL + cloudinaryImageId} />
       <h3 className="p-2 font-bold ">{name}</h3>
       <h5 className="p-2 break-words ">{cuisines.join(", ")}</h5>
@@ -32,5 +32,21 @@ const RestaurantCard = (props) => {
 //         </div>
 //     )
 // }
+
+
+export const isRestaurantClosed=(RestaurantCard)=>{
+  return (props)=>{
+    return (
+    <div className="relative flex ">
+      
+   <RestaurantCard {...props}/>
+   <div className="absolute inset-0 bg-black opacity-50 flex justify-center items-center">
+    <span className="text-white text-lg font-bold">Closed</span>
+   </div>
+ 
+    </div>
+    );
+  }
+}
 
 export default RestaurantCard;

@@ -2,7 +2,7 @@ const CDN_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_324,c_fill/";
 
 const LOGO_URL =
-  "https://www.pngitem.com/pimgs/m/22-227226_delivery-logo-food-delivery-service-hd-png-download.png";
+  "https://img.freepik.com/free-psd/vintage-pizzeria-logo-design_23-2151236943.jpg?w=740&t=st=1721565209~exp=1721565809~hmac=47c913e2b9f337151f1159ce272453bc6e5d045d6eaee84304d0de00b7a5ea66";
 
 const MENU_URL="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.88343&lng=75.777483&restaurantId="; 
 
