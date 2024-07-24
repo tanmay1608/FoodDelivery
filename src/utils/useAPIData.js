@@ -21,6 +21,7 @@ const useAPIData=()=>{
 
  
     const json =await data.json();
+   // console.log(card.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
     
  
@@ -28,6 +29,7 @@ const useAPIData=()=>{
     if(card.card.card.id === "top_brands_for_you"){
       setUpdatedRes(card.card?.card?.gridElements?.infoWithStyle?.restaurants);
       setMainList(card.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      //console.log(card.card?.card?.gridElements?.infoWithStyle?.restaurants);
       break;
     }
    

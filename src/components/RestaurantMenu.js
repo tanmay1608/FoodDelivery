@@ -1,15 +1,22 @@
 import { useParams } from "react-router-dom";
 import ResMenuShimmer from "./ResMenuShimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu"
+import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
 
+  const [showIndex,setShowIndex] = useState(-1);
+
+
   console.log("Inside RestaurantMenu");
 
   const resMenu=useRestaurantMenu(resId);
   console.log("inside res menu:"+ resMenu.length);
+
+
 
 
 
@@ -23,41 +30,44 @@ const RestaurantMenu = () => {
   const groupCardMenu = resMenu.find((card) => card.groupedCard);
   const { itemCards, categories } =
     groupCardMenu?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card;
+    console.log(groupCardMenu?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card["@type"]);
+
+    const itemCategory=groupCardMenu?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item)=> item?.card?.card["@type"]=== "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+    console.log("hello",itemCategory[0]);
 
   return (
-    <div className="flex justify-center p-8">
-      <div className="res-menu-content">
-        <h1 className="text-lg font-bold">{name}</h1>
-        <div className="w-[400] rounded-md m-4 p-4 shadow-lg">
-          <h3>⭐{avgRating}</h3>
-          <p className="text-orange-500 font-bold">{cuisines.join(", ")}</p>
+    <div className="flex flex-col items-center p-8 ">
+      <div className="res-menu-content w-7/12 ">
+        <h1 className="text-xl font-bold ">{name}</h1>
+        <div className="rounded-md m-4 p-4 shadow-lg">
+          <h3 className="p-2">⭐{avgRating}</h3>
+          <p className="text-orange-500 font-bold p-2">{cuisines.join(", ")}</p>
           <p>
-            <span>Outlet: </span> {areaName}
+            <span className="font-semibold p-2">Outlet: </span> {areaName}
           </p>
-          <p>
+          <p className="font-semibold p-2">
             {" "}
-            <span>
+            <span >
               {minDeliveryTime}-{maxDeliveryTime}{" "}
             </span>{" "}
             min
           </p>
         </div>
-        <div>
-          <h1 className="text-base font-bold">Menu</h1>
-          {(categories?.length ? categories[0].itemCards : itemCards).map(
-            (item) => {
-              return (
-                <div key={item?.card?.info?.id} className="p-4 border-b border-gray-200 ">
-                  <h3>{item?.card?.info?.name}</h3>
-                  {/* key in object  : using this we can find whether key is present in object or not*/}
-                  <h4>Rs {"price" in item?.card?.info ? item?.card?.info.price/100 : item?.card?.info.defaultPrice / 100}</h4>
-                  <p>⭐{item?.card?.info?.ratings?.aggregatedRating?.rating ?? "Not rated"}</p>
-                </div>
-              );
-            }
-          )}
-        </div>
+       
       </div>
+
+      <div className="p-4 flex items-center justify-center  w-7/12">
+        <span className="border-2  w-4/12 border-black"></span>
+      <span className="uppercase font-bold mx-2 text-black">menu</span>
+      <span className="border-2  w-4/12 border-black  "></span>
+      </div>
+    
+      {/*categories accordion */}
+      {/*controlled component*/}
+      {itemCategory.map((category,index)=><RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card}  showItems={index === showIndex && true} setShowIndex={(toggle)=>{
+        toggle ? setShowIndex(index) :
+        setShowIndex(-1)
+        }}/>)}
     </div>
   );
 };
