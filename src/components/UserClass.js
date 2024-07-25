@@ -97,7 +97,7 @@ class UserClass extends React.Component {
 }
 
 
-export default UserClass;44
+export default UserClass;
 
 //componenet lifecycle
 /**

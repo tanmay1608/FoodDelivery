@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 //Inline css in jsx
 const styleCard = {
@@ -8,6 +10,7 @@ const RestaurantCard = (props) => {
   const { resData } = props;
   const { name, cuisines, avgRating, cloudinaryImageId } = resData?.info;
   const { slaString } = resData?.info?.sla;
+  const data=useContext(UserContext);
 
   return (
     <div className=" bg-sky-100 mx-2 mb-6 w-48 border border-solid border-black cursor-pointer rounded-t-none rounded-b-2xl transition-transform  duration-300 ease-in-out hover:scale-105 hover:shadow-[10px_10px_20px_0_rgba(0,0,0,0.2)] " style={styleCard}>
@@ -16,6 +19,7 @@ const RestaurantCard = (props) => {
       <h5 className="p-2 break-words ">{cuisines.join(", ")}</h5>
       <h4 className="p-2 font-semibold">⭐ {avgRating}</h4>
       <h4 className="p-2 font-semibold">{slaString}</h4>
+      <h4 className="p-2 font-semibold">{data.loggedInUser}</h4>
     </div>
   );
 };

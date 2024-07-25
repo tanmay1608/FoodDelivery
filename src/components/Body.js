@@ -1,9 +1,10 @@
 import RestaurantCard, { isRestaurantClosed } from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useAPIData from "../utils/useAPIData";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   console.log("Body Rendered");
@@ -11,6 +12,7 @@ const Body = () => {
   // const [mainList, setMainList]= useState([]);
   // const [updatedRes, setUpdatedRes] = useState([]);
   const [searchtext, setSearchText] = useState("");
+  const {loggedInUser,setUserName}=useContext(UserContext);
   const ClosedRestaurant = isRestaurantClosed(RestaurantCard);
   
 
@@ -107,6 +109,19 @@ const Body = () => {
         >
           Filter
         </button>
+
+          {/*so even one compoenent is lazy loaded and it is using data from conetex then even before its loading if data from context chnages then it will also reflect on recently loaded compoenet */}
+        <input
+          className="p-2 m-4 border border-solid  focus:outline-1 focus: outline-gray-400"
+          type="text"
+          placeholder="Search for restaurant.."
+          value={loggedInUser}
+          onChange={(event) => {
+            setUserName(event.target.value);
+          }}
+        ></input>
+
+
       </div>
       <div className="flex flex-wrap justify-center">
         {updatedRes.map((restaurant) => (

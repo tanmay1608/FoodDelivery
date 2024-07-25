@@ -1,7 +1,7 @@
 import ItemList from "./ItemList";
 import {useState} from "react";
 
-const RestaurantCategory = ({ data, showItems ,setShowIndex}) => {
+const RestaurantCategory = ({ data, showItems ,setShowIndex , dummy}) => {
   console.log("lifted state",showItems);
    
 
@@ -31,7 +31,7 @@ const RestaurantCategory = ({ data, showItems ,setShowIndex}) => {
         
         {
             //this is also a way for conditional rendering
-        showItems && <ItemList itemCards={data.itemCards} />
+        showItems && <ItemList itemCards={data.itemCards} dummy={dummy} />
         }
     </div>
   );

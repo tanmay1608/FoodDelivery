@@ -1,7 +1,8 @@
 import { LOGO_URL } from "../utils/constants";
-import {useState, useEffect} from "react";
+import {useState, useEffect, useContext} from "react";
 import {Link} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 
  
@@ -11,6 +12,9 @@ const Header = () => {
 
  
   const [login,setLogin]=useState("login");
+  
+  //const data=useContext(UserContext);
+  const data=useContext(UserContext);
 
   const onlineStatus=useOnlineStatus();
   
@@ -42,6 +46,7 @@ const Header = () => {
             const updatedLogin = login === "login" ? "log out" : "login";
             setLogin(updatedLogin);
           }}>{login}</button>
+           <li className="p-2 my-0 mx-2 list-none">{data.loggedInUser}</li>
         </ul>
       </div>
     </div>

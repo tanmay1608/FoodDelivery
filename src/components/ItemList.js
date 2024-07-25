@@ -1,7 +1,8 @@
 import { CDN_URL } from "../utils/constants";
 
-const ItemList = ({ itemCards }) => {
-  console.log(itemCards[0]?.card?.info);
+const ItemList = ({ itemCards, dummy }) => {
+  console.log(dummy);
+
 
   return (
     //     <div className=" w-4 h-4 rounded-sm border-2 border-red-500 flex justify-center items-center">
