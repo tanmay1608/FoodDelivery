@@ -14,7 +14,6 @@ class About extends Component{
     console.log("parent component did Mount ");
   }
   render(){
-    console.log("parent render");
     
     return (
       <div>

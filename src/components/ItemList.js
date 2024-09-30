@@ -1,8 +1,18 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
+import { addItem } from "../Store/cartSlice";
 
 const ItemList = ({ itemCards, dummy }) => {
-  console.log(dummy);
+  console.log(itemCards[0]);
 
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    //Dispatch an Action
+
+    //And whatever we pass heres will go as my payload
+    dispatch(addItem(item));
+  };
 
   return (
     //     <div className=" w-4 h-4 rounded-sm border-2 border-red-500 flex justify-center items-center">
@@ -27,10 +37,10 @@ const ItemList = ({ itemCards, dummy }) => {
 
         return (
           <div
-            className="flex  justify-between  border-b py-10 px-1 border-black m-2"
+            className="flex  justify-between  border-b py-10 px-1 border-black m-2 "
             key={id}
           >
-            <div className="flex flex-col w-9/12">
+            <div className="flex flex-col w-9/12 ">
               <div
                 className={`w-4 h-4 rounded-sm border-2  ${
                   isVeg ? `border-green-600` : `border-red-500`
@@ -72,7 +82,11 @@ const ItemList = ({ itemCards, dummy }) => {
                 src={CDN_URL + imageId}
                 alt="No image"
               ></img>
-              <button className="bg-white px-10 py-2 absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 rounded-md uppercase font-bold text-green-600 border-2 border-gray-100 shadow-lg">
+              <button
+                className="bg-white px-10 py-2 absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 rounded-md uppercase font-bold text-green-600 border-2 border-gray-100 shadow-lg
+                focus:outline-none focus:shadow-outline  transition-transform duration-100 active:scale-105"
+                onClick={()=>{handleAddItem(item)}}
+              >
                 Add
               </button>
             </div>{" "}
