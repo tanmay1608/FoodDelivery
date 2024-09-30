@@ -1,36 +1,36 @@
 
 const Shimmer=()=>{
     return (
-       <div className="shimmer-conatiner">
-        <div className="shimmer-cards">
-            <div className="shimmer-img"></div>
+       <div className="flex flex-wrap">
+        <div className="m-5 w-[190px] h-[350px] p-2 bg-gray-200">
+            <div className="w-full h-[150px] bg-gray-300"></div>
         </div>
-        <div className="shimmer-cards">
-        <div className="shimmer-img"></div>
+        <div className="m-5 w-[190px] h-[350px] p-2 bg-gray-200">
+        <div className="w-full h-[150px] bg-gray-300"></div>
         </div>
-        <div className="shimmer-cards">
-        <div className="shimmer-img"></div>
+        <div className="m-5 w-[190px] h-[350px] p-2 bg-gray-200">
+        <div className="w-full h-[150px] bg-gray-300"></div>
         </div>
-        <div className="shimmer-cards">
-        <div className="shimmer-img"></div>
+        <div className="m-5 w-[190px] h-[350px] p-2 bg-gray-200">
+        <div className="w-full h-[150px] bg-gray-300"></div>
         </div>
-        <div className="shimmer-cards">
-        <div className="shimmer-img"></div>
+        <div className="m-5 w-[190px] h-[350px] p-2 bg-gray-200">
+        <div className="w-full h-[150px] bg-gray-300"></div>
         </div>
-        <div className="shimmer-cards">
-            <div className="shimmer-img"></div>
+        <div className="m-5 w-[190px] h-[350px] p-2 bg-gray-200">
+            <div className="w-full h-[150px] bg-gray-300"></div>
         </div>
-        <div className="shimmer-cards">
-        <div className="shimmer-img"></div>
+        <div className="m-5 w-[190px] h-[350px] p-2 bg-gray-200">
+        <div className="w-full h-[150px] bg-gray-300"></div>
         </div>
-        <div className="shimmer-cards">
-        <div className="shimmer-img"></div>
+        <div className="m-5 w-[190px] h-[350px] p-2 bg-gray-200">
+        <div className="w-full h-[150px] bg-gray-300"></div>
         </div>
-        <div className="shimmer-cards">
-        <div className="shimmer-img"></div>
+        <div className="m-5 w-[190px] h-[350px] p-2 bg-gray-200">
+        <div className="w-full h-[150px] bg-gray-300"></div>
         </div>
-        <div className="shimmer-cards">
-        <div className="shimmer-img"></div>
+        <div className="m-5 w-[190px] h-[350px] p-2 bg-gray-200">
+        <div className="w-full h-[150px] bg-gray-300"></div>
         </div>
        </div>
     );

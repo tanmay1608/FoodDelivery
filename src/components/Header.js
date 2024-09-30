@@ -3,6 +3,7 @@ import {useState, useEffect, useContext} from "react";
 import {Link} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 
  
@@ -12,7 +13,16 @@ const Header = () => {
 
  
   const [login,setLogin]=useState("login");
+
+  //Selector is hook provided by react-redux
+  //this hook gives access to the store
+  //subscribing to the store using a selector
+  // it give access to store and we can choose what part(slice of store we want to access)
+
+  //we are just subscribing to the small portion of the store
+  const cartItems=useSelector((store)=> store.cart.items);  
   
+
   //const data=useContext(UserContext);
   const data=useContext(UserContext);
 
@@ -40,7 +50,7 @@ const Header = () => {
           <li className="p-2 my-0 mx-2 list-none   rounded-md hover:bg-sky-500 hover:text-white"><Link to={"/about"}>About Us</Link></li>
           <li className="p-2 my-0 mx-2 list-none   rounded-md hover:bg-sky-500 hover:text-white"><Link to={"/contact"}>Contact Us</Link></li>
           <li className="p-2 my-0 mx-2 list-none   rounded-md hover:bg-sky-500 hover:text-white"><Link to={"/grocery"}>Grocery</Link></li>
-          <li className="p-2 my-0 mx-2 list-none">Cart</li>
+          <li className="p-2 my-0 mx-2 list-none font-bold"><Link to={"/cart"}>🛒 ({cartItems.length} Items)</Link></li>
           <button className="p-2 my-0 mx-2 cursor-pointer bg-sky-500 hover:bg-sky-700 hover:text-white rounded-md" onClick={function(){
             
             const updatedLogin = login === "login" ? "log out" : "login";

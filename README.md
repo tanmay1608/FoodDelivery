@@ -65,3 +65,12 @@ const groupedCardMenu = resMenu.find(menu => menu.groupedCard !== undefined);
 In the context of find, the callback function menu => menu.groupedCard will return the value of menu.groupedCard. If menu.groupedCard is not undefined (i.e., it is truthy), it will be equivalent to menu.groupedCard !== undefined.
 
 So, these two lines are effectively the same in this context:
+
+# Redux Toolkit
+  - Install @reduxjs/toolkit and react-redux
+  - Build our store
+  - Connect our store to our app
+  - Slice (cartSlice)
+  - dispatch(action)
+  - Selector
+  

@@ -8,6 +8,9 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
+import {Provider} from "react-redux";
+import appStore from "./Store/appStore";
+import Cart from "./components/Cart";
 //import Grocery from "./components/Grocery";
 
 
@@ -34,21 +37,21 @@ useEffect(()=>{
 
   return (
 
-    //so here loggedInUser value is overrided
-    //so anything we wrap inside .Provider for them value is overrided
-    //as for header value will be kumar for everone inside app value will be Tanmay Barjatya outside .Provider value will be dafault
-    //we can have Nested Providers
 
-    //so using this way we cna read write conext from anywhere
+    //providing the store to our App to make the Redux store available to our React components
+
+    <Provider store={appStore}>
+
     <UserContext.Provider value={{loggedInUser:userName, setUserName}}>
       <div className="app">
-        <UserContext.Provider value={{loggedInUser:"Kumar"}}>
+       
         <Header />
-        </UserContext.Provider>
+        
      
       <Outlet />
     </div>
     </UserContext.Provider>
+    </Provider>
     
   );
 };
@@ -79,7 +82,11 @@ const appRouter=createBrowserRouter([
       {
         path:"/restaurants/:resId",
         element:<RestaurantMenu/>
-      }
+      },
+      {
+        path:"/cart",
+        element:<Cart/>
+      },
     ],
     errorElement: <Error/> //if there is any eror show this component   
   },
